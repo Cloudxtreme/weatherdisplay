@@ -1,0 +1,8 @@
+---
+- user: name=kiosk home=/home/kiosk
+- copy: src=kiosk dest=~kiosk/ owner=kiosk
+- copy: src=dotxinit.rc dest=~kiosk/.xsession owner=kiosk mode=755
+- get_url: url=https://www.deere.com/en_US/media/corporate_images/fans_visitors/wallpaper/primarywallpaper/sprayer_1920x1080.jpg dest=~kiosk/.desktop.jpg owner=kiosk 
+
+- copy: src=lightdm.conf dest=/etc/lightdm
+- service: name=lightdm state=restarted

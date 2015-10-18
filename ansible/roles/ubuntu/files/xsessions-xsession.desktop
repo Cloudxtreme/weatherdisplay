@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=xsession
+Comment=Simple xsession based session
+Exec=/etc/X11/Xsession
+Icon=
+Type=Application
+X-LightDM-DesktopName=xsession
+X-Ubuntu-Gettext-Domain=gnome-session-3.0

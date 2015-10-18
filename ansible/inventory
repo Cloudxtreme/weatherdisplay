@@ -1,0 +1,2 @@
+# Ansible inventory
+dhcp58 ansible_ssh_user=weather

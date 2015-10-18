@@ -1,0 +1,13 @@
+#!/bin/sh
+
+xrandr --output VGA-0 --mode 1920x1080
+xset s off
+xset -dpms
+xsetroot -solid '#aca'
+xloadimage -onroot ~/.desktop.jpg
+unclutter &
+pkill -f 'sh /home/kiosk/kiosk/kiosk.sh'
+pkill java
+pkill ".*chromium-brow"
+sh ~/kiosk/kiosk.sh &
+exec /usr/bin/compiz
