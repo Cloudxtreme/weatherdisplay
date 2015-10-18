@@ -2,15 +2,25 @@
 - apt: purge=yes state=absent name={{item}}
   with_items:
     - libreoffice*
-- apt: update_cache=yes name={{item}}
+    - sofware-center
+    - telepathy-*
+    - printer-driver-*
+    - unity-scope-*
+- apt: update_cache=yes
+- command: apt-get upgrade -y
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+- command: apt-get autoremove -y
+- apt: name={{item}}
   with_items:
     - groovy
     - chromium-browser
     - xloadimage
     - unclutter
+- command: apt-get clean -y
+
 # https://sites.google.com/a/chromium.org/chromedriver/downloads
 # http://chromedriver.storage.googleapis.com/index.html?path=2.20/
-#- get_url: url=http://chromedriver.storage.googleapis.com/2.20/chromedriver_linux64.zip dest=/tmp/chromedriver.zip
 - script: download_chromedriver.sh http://chromedriver.storage.googleapis.com/2.20/chromedriver_linux64.zip creates=/usr/local/bin/chromedriver 
 
 - copy: src=xsessions-xsession.desktop dest=/usr/share/xsessions/xsession.desktop mode=0644 owner=root

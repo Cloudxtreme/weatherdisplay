@@ -26,6 +26,6 @@ Vagrant.configure(2) do |config|
     ansible.groups = {
       "vagrant" => ["default"]
     }
-    ansible.verbose = "vvv"
+    #ansible.verbose = "vvv"
   end
 end
